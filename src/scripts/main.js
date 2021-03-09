@@ -1,4 +1,3 @@
-import { EntryListComponent } from "./JournalEntryList.js"
+import { EntryListComponent } from "./entry/JournalEntryList.js"
 
-console.log("Welcome to the main module")
 EntryListComponent();
