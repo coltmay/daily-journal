@@ -39,6 +39,11 @@ aside {
 	width: 350px;
 }
 
+.journalList {
+	width: 100%;
+	text-align: center;
+}
+
 main {
 	flex: 3;
 }
