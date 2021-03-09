@@ -5,12 +5,16 @@ import { JournalEntryComponent } from "./JournalEntry.js"
 const entryLog = document.querySelector(".journalList")
 
 export const EntryListComponent = () => {
+    // Get all entries from API
     getJournalEntries()
-    .then((allEntries) => {
-        let entryHTMLRepresentation = "";
-        for (const entry of allEntries) {
-        entryHTMLRepresentation += JournalEntryComponent(entry)
-        }
-        entryLog.innerHTML += entryHTMLRepresentation;
-    })
+        // Use .then to wait until promise is resolved, then return array as allEntries
+        .then(allEntries => {
+            // Set an empty HTML representation to be populated later.
+            let entryHTMLRepresentation = "";
+            // A forEach loop.
+            allEntries.forEach(entry => {
+                entryHTMLRepresentation += JournalEntryComponent(entry);
+            })
+            entryLog.innerHTML += entryHTMLRepresentation;
+        })
 }
