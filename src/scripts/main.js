@@ -13,21 +13,33 @@ import { entryListComponent, filteredEntryListComponent } from "./entry/JournalE
     * [X] Return the response in JSON format 
 [ ] Add event listener to main.js to listen for the save button
     * clickSaveButton must...
-    * [ ] Check if target.id to be equal to save button
-    * [ ] Set a list of constants equal to...
-        * [ ] journalDate
-        * [ ] journalConcepts
-        * [ ] journalMood
-        * [ ] journalEntry
-    * [ ] Create a const object with all values above as keys
+    * [X] Check if target.id to be equal to save button
+    * [X] Set a list of constants equal to...
+        * [X] journalDate
+        * [X] journalConcepts
+        * [X] journalMood
+        * [X] journalEntry
+    * [X] Create a const object with all values above as keys
     * [ ] Invoke createEntry with object
 ------------------------------------------------------------------------- */
 const applicationElement = document.querySelector("body");
 
 const clickSaveButton = () => {
     applicationElement.addEventListener("click", event => {
+        event.preventDefault();
         if (event.target.id === "saveButton") {
-            console.log("Save")
+            const date = document.querySelector("input[name='journalDate']").value;
+            const concept = document.querySelector("input[name='journalConcepts']").value;
+            const mood = document.querySelector("select[name='journalMood']").value;
+            const entry = document.querySelector("textarea[name='journalEntry']").value;
+            
+            const entryObject = {
+                date: date,
+                concept: concept,
+                mood: mood,
+                entry: entry
+            }
+            createEntry(entryObject);
         }
     })
 }
