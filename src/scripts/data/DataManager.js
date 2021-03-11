@@ -23,7 +23,7 @@ export const createEntry = (entryObj) => {
     return fetch("http://localhost:8090/entries", {
         method: "POST",
         headers: {
-            "Content-Type": "applicaton/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(entryObj)
     })

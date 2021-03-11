@@ -20,7 +20,7 @@ import { entryListComponent, filteredEntryListComponent } from "./entry/JournalE
         * [X] journalMood
         * [X] journalEntry
     * [X] Create a const object with all values above as keys
-    * [ ] Invoke createEntry with object
+    * [X] Invoke createEntry with object
 ------------------------------------------------------------------------- */
 const applicationElement = document.querySelector("body");
 
@@ -28,17 +28,20 @@ const clickSaveButton = () => {
     applicationElement.addEventListener("click", event => {
         event.preventDefault();
         if (event.target.id === "saveButton") {
-            const date = document.querySelector("input[name='journalDate']").value;
-            const concept = document.querySelector("input[name='journalConcepts']").value;
-            const mood = document.querySelector("select[name='journalMood']").value;
-            const entry = document.querySelector("textarea[name='journalEntry']").value;
-            
+            // A list of input variables is created and and assigned.
+            const date = document.getElementById("journalDate").value;
+            const concept = document.getElementById("journalConcepts").value;
+            const mood = document.getElementById("journalMood").value;
+            const entry = document.getElementById("journalEntry").value;
+
+            // An object that takes in the above variables
             const entryObject = {
                 date: date,
                 concept: concept,
                 mood: mood,
                 entry: entry
             }
+            // Posts object to the JSON file
             createEntry(entryObject);
         }
     })

@@ -18,17 +18,11 @@
         <fieldset class="descriptorBox">
             <div class="dateDescriptor">
                 <label for="journalDate">Date of Entry</label>
-                <input  value=""
-                        type="date"
-                        name="journalDate"
-                        id="journalDate" />
+                <input type="date" name="journalDate" id="journalDate" />
             </div>
             <div class="conceptDescriptor">
                 <label for="journalConcepts">Concepts Covered</label>
-                <input  value=""
-                        type="text" 
-                        name="journalConcepts" 
-                        id="journalConcepts" />
+                <input value="" type="text" name="journalConcepts" id="journalConcepts" />
             </div>
             <div class="moodDescriptor">
                 <label for="journalMood">Mood</label>
@@ -42,29 +36,31 @@
             </div>
         </fieldset>
     </header>
-    <!-- A List of Entries To The Side -->
-    <aside>
-        <div class="entryList">
 
-        </div>
-    </aside>
-    <!-- An Entry Form -->
     <main>
-        <form>
-            <textarea 
-                class="journalEntry"
-                value=""
-                type="text"
-                name="journalEntry">
+        <!-- A List of Entries To The Side -->
+        <aside class="entryListContainer">
+            <div class="entryList">
+                
+            </div>
+        </aside>
+        <!-- An Entry Form -->
+        <aside class="entryFormContainer">
+            <form>
+                <textarea value="" type="text" name="journalEntry" id="journalEntry">
             </textarea>
-        </form>
-        <form class="buttonBox">
-            <button type="button" id="saveButton">Save</button>
-            <button type="button" id="editButton">Edit</button>
-        </form>
+            </form>
+            <form class="buttonBox">
+                <button type="button" id="saveButton">Save</button>
+                <button type="button" id="editButton">Edit</button>
+            </form>
+        </aside>
+
+        <aside class="journalList">
+        </aside>
+
     </main>
-    <aside class="journalList">
-    </aside>
+
     <footer>
         <div class="moodFilterContainer">
             Mood Filter:
@@ -86,6 +82,7 @@
             </a>
         </div>
     </footer>
+
     <script type="module" src="./scripts/main.js"></script>
 </body>
 
