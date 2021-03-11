@@ -18,3 +18,14 @@ export const getJournalEntries = () => {
 export const useEntryCollection = () => {
     return [...entryCollection];
 }
+
+export const createEntry = (entryObj) => {
+    return fetch("http://localhost:8090/entries", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(entryObj)
+    })
+    .then(response => response.json());
+} 

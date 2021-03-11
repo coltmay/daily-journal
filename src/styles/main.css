@@ -35,24 +35,34 @@ header h1 {
 	text-align: center;
 }
 
-aside {
-	width: 350px;
+main {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.entryListContainer {
+	flex: 1;
+}
+
+.entryFormContainer {
+	flex: 3;
 }
 
 .journalList {
 	width: 100%;
+	margin-top: 2em;
 	text-align: center;
-	padding: 0;
-}
-
-main {
-	flex: 3;
 }
 
 footer {
+	margin-top: 5em;
+	padding-top: 2em;
 	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
 	justify-content: center;
+	border-top: rgb(104, 104, 104) solid;
 }
 
 .descriptorBox {
@@ -60,12 +70,11 @@ footer {
 	justify-content: space-evenly;
 }
 
-.journalEntry {
-	width: 100%;
+#journalEntry {
+	width: 99%;
 	height: 700px;
 	resize: none;
 }
-
 
 .buttonBox {
 	display: flex;
@@ -74,4 +83,26 @@ footer {
 
 .buttonBox button {
 	width: 30%;
+}
+
+.moodFilterContainer {
+	align-self: center;
+	width: 100%;
+
+}
+
+.gitHubLinkContainer {
+	align-self: center;
+
+}
+
+.proflePictureContainer {
+	margin-left: 2em;
+	align-self: center;
+
+}
+
+.profilePicture {
+	width: 35px;
+	border-radius: 50%;
 }

@@ -1,12 +1,48 @@
-import { useEntryCollection } from "./data/DataManager.js";
+import { useEntryCollection, createEntry } from "./data/DataManager.js";
 import { entryListComponent, filteredEntryListComponent } from "./entry/JournalEntryList.js"
 
+/* // TODO -----------------------------------------------------------------------------
+[X] Export a createEntry function in DataManager.js
+    * createEntry must...
+    * [X] Take in a entryObject
+    * [X] Fetch the posts
+    * [X] Have appropriate arguments
+        * [X] Method
+        * [X] Headers
+        * [X] Body
+    * [X] Return the response in JSON format 
+[ ] Add event listener to main.js to listen for the save button
+    * clickSaveButton must...
+    * [X] Check if target.id to be equal to save button
+    * [X] Set a list of constants equal to...
+        * [X] journalDate
+        * [X] journalConcepts
+        * [X] journalMood
+        * [X] journalEntry
+    * [X] Create a const object with all values above as keys
+    * [X] Invoke createEntry with object
+------------------------------------------------------------------------- */
 const applicationElement = document.querySelector("body");
 
 const clickSaveButton = () => {
     applicationElement.addEventListener("click", event => {
+        event.preventDefault();
         if (event.target.id === "saveButton") {
-            console.log("Save")
+            // A list of input variables is created and and assigned.
+            const date = document.getElementById("journalDate").value;
+            const concept = document.getElementById("journalConcepts").value;
+            const mood = document.getElementById("journalMood").value;
+            const entry = document.getElementById("journalEntry").value;
+
+            // An object that takes in the above variables
+            const entryObject = {
+                date: date,
+                concept: concept,
+                mood: mood,
+                entry: entry
+            }
+            // Posts object to the JSON file
+            createEntry(entryObject);
         }
     })
 }
@@ -48,11 +84,3 @@ const startJournal = () => {
 }
 
 startJournal();
-
-/*
-[X] Add an element that will take the mood selector.
-[X] Create an empty array that will eventually hold the filtered entries.
-[X] Export a function that returns said array.
-[X] Set an event to do something based off a mood selecting element.
-[X] Tie the mood selecting element into the filtering function.
-*/
