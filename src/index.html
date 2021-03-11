@@ -50,13 +50,21 @@
             </textarea>
         </form>
         <form class="buttonBox">
-            <button type="button">Save</button>
-            <button type="button">Edit</button>
+            <button type="button" id="saveButton">Save</button>
+            <button type="button" id="editButton">Edit</button>
         </form>
     </main>
     <aside class="journalList">
-        Journal Text Entered Here
     </aside>
+    <div>
+        <select id="moodFilter" name="moodFilter">
+            <option value="Very Good">Very Good</option>
+            <option value="Good">Good</option>
+            <option value="Neutral" selected>Neutral</option>
+            <option value="Bad">Bad</option>
+            <option value="Very Bad">Very Bad</option>
+        </select>
+    </div>
     <footer>
         <div>
             <a href=" https://github.com/coltmay">Colten Mayberry
