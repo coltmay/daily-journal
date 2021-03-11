@@ -1,6 +1,27 @@
-import { useEntryCollection } from "./data/DataManager.js";
+import { useEntryCollection, createEntry } from "./data/DataManager.js";
 import { entryListComponent, filteredEntryListComponent } from "./entry/JournalEntryList.js"
 
+/* // TODO -----------------------------------------------------------------------------
+[X] Export a createEntry function in DataManager.js
+    * createEntry must...
+    * [X] Take in a entryObject
+    * [X] Fetch the posts
+    * [X] Have appropriate arguments
+        * [X] Method
+        * [X] Headers
+        * [X] Body
+    * [X] Return the response in JSON format 
+[ ] Add event listener to main.js to listen for the save button
+    * clickSaveButton must...
+    * [ ] Check if target.id to be equal to save button
+    * [ ] Set a list of constants equal to...
+        * [ ] journalDate
+        * [ ] journalConcepts
+        * [ ] journalMood
+        * [ ] journalEntry
+    * [ ] Create a const object with all values above as keys
+    * [ ] Invoke createEntry with object
+------------------------------------------------------------------------- */
 const applicationElement = document.querySelector("body");
 
 const clickSaveButton = () => {
@@ -48,11 +69,3 @@ const startJournal = () => {
 }
 
 startJournal();
-
-/*
-[X] Add an element that will take the mood selector.
-[X] Create an empty array that will eventually hold the filtered entries.
-[X] Export a function that returns said array.
-[X] Set an event to do something based off a mood selecting element.
-[X] Tie the mood selecting element into the filtering function.
-*/
