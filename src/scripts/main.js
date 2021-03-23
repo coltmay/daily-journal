@@ -1,4 +1,4 @@
-import { useEntryCollection, createEntry } from "./data/DataManager.js";
+import { useEntryCollection, createEntry, deleteEntry } from "./data/DataManager.js";
 import { entryListComponent, filteredEntryListComponent } from "./entry/JournalEntryList.js"
 
 /* // TODO -----------------------------------------------------------------------------
@@ -11,7 +11,7 @@ import { entryListComponent, filteredEntryListComponent } from "./entry/JournalE
         * [X] Headers
         * [X] Body
     * [X] Return the response in JSON format 
-[ ] Add event listener to main.js to listen for the save button
+[X] Add event listener to main.js to listen for the save button
     * clickSaveButton must...
     * [X] Check if target.id to be equal to save button
     * [X] Set a list of constants equal to...
@@ -55,6 +55,23 @@ const clickEditButton = () => {
     })
 }
 
+const clickDeleteButton = () => {
+    applicationElement.addEventListener("click", event => {
+        event.preventDefault();
+        if (event.target.id.startsWith("delete")) {
+            const entryId = event.target.id.split("__")[1];
+            deleteEntry(entryId)
+                .then(response => {
+                    entryListComponent();
+                })
+        }
+    })
+}
+
+
+
+
+// Listens for a change in the mood selector, invokes 'showFilteredEntries'
 const changeMoodSelector = () => {
     applicationElement.addEventListener("change", event => {
         if (event.target.id === "moodFilter") {
@@ -64,6 +81,7 @@ const changeMoodSelector = () => {
     })
 }
 
+// Checks the value of mood, filters an array, then displays filtered array to DOM
 const showFilteredEntries = (mood) => {
     // Filter by mood
     //* Sets an array equal to the array that has been returned, but filtered.
@@ -81,6 +99,7 @@ const startJournal = () => {
     clickSaveButton();
     clickEditButton();
     changeMoodSelector();
+    clickDeleteButton();
 }
 
 startJournal();

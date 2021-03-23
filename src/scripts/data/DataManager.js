@@ -29,3 +29,14 @@ export const createEntry = (entryObj) => {
     })
     .then(response => response.json());
 } 
+
+export const deleteEntry = (entryId) => {
+    return fetch(`http://localhost:8090/entries/${entryId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => response.json())
+        .then(getJournalEntries)
+}
